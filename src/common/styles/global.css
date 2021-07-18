@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Staatliches', cursive;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.touch {
+  -webkit-overflow-scrolling: touch;
+}
