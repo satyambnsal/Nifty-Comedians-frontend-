@@ -7,8 +7,7 @@ import Footer from './../../components/footer/Footer';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100vw',
-    minHeight: '100vh',
+    width: '100%',
     position: 'relative',
   },
 
@@ -17,13 +16,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     top: 0,
     left: 0,
-    zIndex: 1000,
+    zIndex: 1200,
   },
 
   content: {
-    height: '100vh',
     overflowX: 'hidden',
-    overflowY: 'auto',
   },
 
   footer: {

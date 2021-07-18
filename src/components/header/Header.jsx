@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router';
+import classNames from 'classnames';
 import {
   makeStyles,
   Grid,
@@ -17,7 +19,6 @@ import {
   PersonOutlined,
 } from '@material-ui/icons';
 import logo from '../../assets/imgs/logo.png';
-import { useHistory } from 'react-router';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -28,6 +29,10 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down('sm')]: {
       padding: `${theme.spacing(2)}px ${theme.spacing(2.5)}px`,
+    },
+
+    '&.scrolled': {
+      background: theme.palette.primary.light,
     },
   },
 
@@ -73,9 +78,31 @@ export default function Header() {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const [search, setSearch] = useState('');
+  const [scrolled, setScrolled] = useState(false);
+  const headerRef = useRef();
+
+  useEffect(() => {
+    if (headerRef.current) {
+      const onWindowScroll = () => {
+        if (window.pageYOffset > 100) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      };
+
+      window.addEventListener('scroll', onWindowScroll);
+      return () => {
+        window.removeEventListener('scroll', onWindowScroll);
+      };
+    }
+  }, [headerRef.current]);
 
   return (
-    <div className={classes.header}>
+    <div
+      className={classNames(classes.header, scrolled && 'scrolled')}
+      ref={headerRef}
+    >
       <Box display='flex' alignItems='center' flex={1}>
         <img
           className={classes.logo}

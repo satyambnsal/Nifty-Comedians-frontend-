@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
       height: 360,
       transform: 'rotate(-4.26deg)',
       position: 'absolute',
-      top: '100vh',
+      top: 'calc(100vh - 50px)',
       left: -90,
     },
 
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
       height: '100%',
       transform: 'rotate(2.63deg)',
       position: 'absolute',
-      top: 'calc(100vh + 80px)',
+      top: 'calc(100vh + 30px)',
       left: -80,
     },
   },
