@@ -61,8 +61,9 @@ export default function Footer() {
 
   const socialLinks = [
     'https://slack.com/',
-    'https://twitter.com/',
-    'https://instagram.com/',
+  //'https://discord.gg/VxFx9g4s',
+    'http://twitter.com/NiftyComedians',
+  //'https://instagram.com/',
   ];
 
   return (
