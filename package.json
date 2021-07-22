@@ -27,7 +27,6 @@
     "jest-environment-node": "~26.6.2",
     "near-cli": "~1.6.0",
     "nodemon": "~2.0.3",
-    "parcel-bundler": "~1.12.4",
     "react-test-renderer": "~17.0.1"
   },
   "dependencies": {
@@ -38,6 +37,7 @@
     "classnames": "^2.3.1",
     "env-cmd": "^10.1.0",
     "near-api-js": "~0.41.0",
+    "parcel-bundler": "~1.12.4",
     "react": "^16.8.0 || ^17.0.0",
     "react-dom": "^16.8.0 || ^17.0.0",
     "react-multi-carousel": "^2.6.3",
