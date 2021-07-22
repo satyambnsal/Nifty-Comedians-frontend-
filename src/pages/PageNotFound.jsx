@@ -9,13 +9,15 @@ const styleSheet = (theme) => ({
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    padding: '50px 100px',
+    padding: '200px 100px 100px',
+    color: 'white',
     [theme.breakpoints.down('xs')]: {
-      padding: '40px 22px',
+      padding: '100px 22px 50px',
     },
   },
 
   redirector: {
+    fontFamily: 'Barlow',
     '&> span': {
       cursor: 'pointer',
       color: theme.palette.primary.main,
@@ -43,10 +45,7 @@ class PageNotFound extends React.Component {
           to invite you to one of their boards or teams.
         </p>
         <div className={classes.redirector}>
-          Want to visit{' '}
-          <span onClick={this.gotoHomePage}>
-            <strong>home page</strong>
-          </span>
+          Want to visit <span onClick={this.gotoHomePage}>home page</span>
           ?
           <br />
           Or go to <span onClick={this.gotoPreviousPage}>previous page</span>

@@ -11,6 +11,8 @@ import {
   useTheme,
   IconButton,
   Button,
+  MenuItem,
+  Menu,
 } from '@material-ui/core';
 import {
   SearchOutlined,
@@ -19,6 +21,7 @@ import {
   PersonOutlined,
 } from '@material-ui/icons';
 import logo from '../../assets/imgs/logo.png';
+import { logout } from '../../common/utils/near_contract';
 
 const useStyles = makeStyles((theme) => ({
   header: {
@@ -62,6 +65,11 @@ const useStyles = makeStyles((theme) => ({
     color: 'white',
   },
 
+  menuItem: {
+    fontFamily: 'Barlow',
+    fontSize: '16px',
+  },
+
   avatar: {
     borderRadius: 0,
     width: theme.spacing(5.5),
@@ -81,6 +89,8 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const headerRef = useRef();
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
   useEffect(() => {
     if (headerRef.current) {
       const onWindowScroll = () => {
@@ -97,6 +107,12 @@ export default function Header() {
       };
     }
   }, [headerRef.current]);
+
+  const handleLogout = () => {
+    if (window.walletConnection.isSignedIn()) {
+      logout();
+    }
+  };
 
   return (
     <div
@@ -131,17 +147,59 @@ export default function Header() {
         <div>
           <Grid container spacing={5}>
             <Grid item>
-              <Button className={classes.menuBtn}>
+              <Button
+                className={classes.menuBtn}
+                onClick={() => history.push('/discover')}
+              >
                 Discover <KeyboardArrowDownOutlined />
               </Button>
             </Grid>
             <Grid item>
-              <Button className={classes.menuBtn}>My Comedy</Button>
+              <Button
+                className={classes.menuBtn}
+                onClick={() => history.push('/my-comedy')}
+              >
+                My Comedy
+              </Button>
             </Grid>
             <Grid item>
-              <IconButton className={classes.avatar}>
+              <IconButton
+                className={classes.avatar}
+                onClick={(e) => {
+                  if (window.walletConnection.isSignedIn()) {
+                    setAnchorEl(e.currentTarget);
+                  } else {
+                    history.push('/auth/login');
+                  }
+                }}
+              >
                 <PersonOutlined />
               </IconButton>
+              <Menu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={() => setAnchorEl(null)}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'right',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                getContentAnchorEl={null}
+              >
+                <MenuItem
+                  className={classes.menuItem}
+                  onClick={() => {
+                    handleLogout();
+                    setAnchorEl(null);
+                  }}
+                >
+                  Logout
+                </MenuItem>
+              </Menu>
             </Grid>
           </Grid>
         </div>

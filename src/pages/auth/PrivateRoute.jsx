@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core';
 
 import Header from './../../components/header/Header';
 import Footer from './../../components/footer/Footer';
+import Background from './../home/Background';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -19,8 +20,14 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 1200,
   },
 
-  content: {
+  contentWrapper: {
     overflowX: 'hidden',
+    position: 'relative',
+    minHeight: '100vh',
+  },
+
+  content: {
+    minHeight: 'calc(100vh - 278px)',
   },
 
   footer: {
@@ -49,8 +56,12 @@ export default function PrivateRoute({ authRequired, singlePage, ...props }) {
           <div className={classes.header}>
             <Header />
           </div>
-          <div className={classes.content}>
-            <Component {...routeProps} />
+          <div className={classes.contentWrapper}>
+            <Background />
+
+            <div className={classes.content}>
+              <Component {...routeProps} />
+            </div>
 
             <div className={classes.footer}>
               <Footer />
