@@ -1,4 +1,4 @@
-import 'regenerator-runtime/runtime';
+// import 'regenerator-runtime/runtime';
 import React from 'react';
 import './global.css';
 import { login } from './../../common/utils/near_contract';
