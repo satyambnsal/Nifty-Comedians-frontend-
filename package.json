@@ -15,8 +15,7 @@
     "start": "echo The app is starting! It will automatically open in your browser when ready && parcel src/index.html --open",
     "dev": "nodemon --watch contract -e ts --exec \"npm run start\"",
     "test": "npm run build:contract:debug && cd contract && npm run test && cd .. && jest test --runInBand",
-    "postinstall": "cd contract && yarn install",
-    "postbuild": "yarn deploy:contract"
+    "postinstall": "cd contract && yarn install"
   },
   "devDependencies": {
     "@babel/core": "~7.14.0",
