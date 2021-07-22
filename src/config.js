@@ -1,5 +1,5 @@
-// const CONTRACT_NAME = process.env.CONTRACT_NAME ||'nifty-comedians-app'
-const CONTRACT_NAME = 'nifty-comedians-app.william-nifty.testnet' ||'nifty-comedians-app'
+const CONTRACT_NAME = process.env.CONTRACT_NAME ||'nifty-comedians-app'
+// const CONTRACT_NAME = 'nifty-comedians-app.william-nifty.testnet' ||'nifty-comedians-app'
 
 function getConfig(env) {
   switch (env) {
