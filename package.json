@@ -16,7 +16,7 @@
     "dev": "nodemon --watch contract -e ts --exec \"npm run start\"",
     "test": "npm run build:contract:debug && cd contract && npm run test && cd .. && jest test --runInBand",
     "postinstall": "cd contract && npm install",
-    "heroku-postbuild": "npm run build && npm run deploy:contract"
+    "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
     "@babel/core": "~7.14.0",
