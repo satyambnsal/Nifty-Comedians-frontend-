@@ -2,7 +2,7 @@
   "name": "nifty-comedians-app",
   "version": "0.1.0",
   "license": "UNLICENSED",
-  "homepage": "http://bigsmall2697.github.io/nifty-comedians/",
+  "homepage": "http://jackmcd101.github.io/Nifty-Comedians-frontend-/",
   "scripts": {
     "build": "npm run build:contract && npm run build:web",
     "build:contract": "node contract/compile.js",
