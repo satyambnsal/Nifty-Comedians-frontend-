@@ -11,7 +11,7 @@ import theme from './common/theme';
 export default function App() {
   return (
     <MuiThemeProvider theme={theme}>
-      <Router>
+      <Router basename='/app'>
         <MainRoute />
       </Router>
     </MuiThemeProvider>
