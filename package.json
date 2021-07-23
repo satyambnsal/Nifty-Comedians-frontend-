@@ -12,8 +12,8 @@
     "deploy:contract": "near deploy",
     "deploy:pages": "gh-pages -d dist/",
     "deploy": "npm run build && npm run deploy:contract && npm run deploy:pages",
-    "start": "echo The app is starting! It will automatically open in your browser when ready && parcel src/index.html --open",
-    "dev": "nodemon --watch contract -e ts --exec \"npm run start\"",
+    "start-dev": "echo The app is starting! It will automatically open in your browser when ready && parcel src/index.html --open",
+    "start": "nodemon --watch contract -e ts --exec \"npm run start-dev\"",
     "test": "npm run build:contract:debug && cd contract && npm run test && cd .. && jest test --runInBand",
     "postinstall": "cd contract && npm install",
     "heroku-postbuild": "npm run build"
