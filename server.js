@@ -3,7 +3,7 @@ const express = require('express')
 const logfmt = require('logfmt')
 const app = express()
 
-app.use(logfmt.requestLogger())
+// app.use(logfmt.requestLogger())
 
 app.use(express.static(path.join(__dirname, 'dist')));
 
